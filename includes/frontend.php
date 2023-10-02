@@ -468,7 +468,9 @@ class Frontend extends App {
 			$this->get_js_assets_url( 'frontend' ),
 			$this->get_elementor_frontend_dependencies(),
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		/**
@@ -605,7 +607,9 @@ class Frontend extends App {
 					'elementor-frontend',
 				],
 				ELEMENTOR_VERSION,
-				true
+				array(
+					'strategy'  => 'defer',
+				)
 			);
 		}
 
