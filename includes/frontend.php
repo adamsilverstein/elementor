@@ -243,7 +243,7 @@ class Frontend extends App {
 		add_action( 'wp_head', [ $this, 'print_fonts_links' ], 7 );
 		add_action( 'wp_head', [ $this, 'print_google_fonts_preconnect_tag' ], 8 );
 		add_action( 'wp_head', [ $this, 'add_theme_color_meta_tag' ] );
-		add_action( 'wp_footer', [ $this, 'wp_footer' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'wp_footer' ] );
 	}
 
 	public function print_google_fonts_preconnect_tag() {
@@ -379,7 +379,9 @@ class Frontend extends App {
 			$this->get_js_assets_url( 'webpack.runtime', 'assets/js/' ),
 			[],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -390,8 +392,15 @@ class Frontend extends App {
 				'jquery',
 			],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
+
+		// Add the defer strategy to jquery.
+		wp_script_add_data( 'jquery-core', 'strategy', 'defer' );
+		wp_script_add_data( 'jquery-migrate', 'strategy', 'defer' );
+		wp_script_add_data( 'jquery-ui-core', 'strategy', 'defer' );
 
 		wp_register_script(
 			'elementor-waypoints',
@@ -400,7 +409,9 @@ class Frontend extends App {
 				'jquery',
 			],
 			'4.0.2',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -410,7 +421,9 @@ class Frontend extends App {
 				'jquery',
 			],
 			'4.1.4',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -420,7 +433,9 @@ class Frontend extends App {
 				'jquery',
 			],
 			'4.1.0',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -440,7 +455,9 @@ class Frontend extends App {
 				'jquery-ui-position',
 			],
 			'4.9.0',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -450,7 +467,9 @@ class Frontend extends App {
 				'jquery',
 			],
 			'1.2.0',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -460,7 +479,9 @@ class Frontend extends App {
 				'jquery',
 			],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(

@@ -186,7 +186,9 @@ class App extends BaseApp {
 				'react',
 			],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -196,7 +198,9 @@ class App extends BaseApp {
 				'jquery',
 			],
 			'4.0.6-rc.1',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_enqueue_script(
@@ -210,7 +214,9 @@ class App extends BaseApp {
 				'select2',
 			],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		$this->enqueue_dark_theme_detection_script();
@@ -229,7 +235,9 @@ class App extends BaseApp {
 				'elementor-common',
 			],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		$this->print_config( 'elementor-app-loader' );

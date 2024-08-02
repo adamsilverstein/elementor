@@ -62,7 +62,9 @@ class Module extends BaseApp {
 			$this->get_js_assets_url( 'elementor-admin-bar' ),
 			[ 'elementor-frontend-modules' ],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		// This is a core script of WordPress, it is not required to pass the 'ver' argument.
@@ -71,7 +73,9 @@ class Module extends BaseApp {
 			null,
 			[ 'elementor-admin-bar' ],
 			false,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		$this->print_config( 'elementor-admin-bar' );

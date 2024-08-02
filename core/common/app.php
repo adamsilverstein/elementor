@@ -99,7 +99,9 @@ class App extends BaseApp {
 			$this->get_js_assets_url( 'common-modules' ),
 			[],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -109,7 +111,9 @@ class App extends BaseApp {
 				'backbone',
 			],
 			'2.4.5.e1',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -119,7 +123,9 @@ class App extends BaseApp {
 				'backbone',
 			],
 			'1.0.4',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_register_script(
@@ -129,8 +135,12 @@ class App extends BaseApp {
 				'jquery-ui-position',
 			],
 			'4.9.0',
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
+
+		// Ensure jquery-ui scripts can be deferred.
 
 		wp_enqueue_script(
 			'elementor-common',
@@ -147,7 +157,9 @@ class App extends BaseApp {
 				'elementor-dev-tools',
 			],
 			ELEMENTOR_VERSION,
-			true
+			array(
+				'strategy'  => 'defer',
+			)
 		);
 
 		wp_set_script_translations( 'elementor-common', 'elementor' );
